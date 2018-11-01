@@ -29,12 +29,15 @@ df2 = df.loc[df['sepal_length'] > 5.0, ]
 Data Visualization in Panads
 '''
 
-# Define a color mapping by class
-colors = df['class'].map({'Iris-setosa':'b', 'Iris-versicolor':'r', 'Iris-virginica':'g'})
+# Define marker shapes by class
+marker_shapes = ['.', '^', '*']
 
-# Then, plot a scatterplot using the color mapping
-df.plot.scatter(x='sepal_length', y='sepal_width', color=colors, 
-                title="Sepal Width vs Length by Species")
+# Then, plot the scatterplot
+for i, species in enumerate(df['class'].unique()):
+  if i == 0:
+    ax = df[df['class'] == species].plot.scatter(x='sepal_length', y='sepal_width', marker=marker_shapes[i], s=100,title="Sepal Width vs Length by Species", label=species, figsize=(10,7))
+  else:
+    df[df['class'] == species].plot.scatter(x='sepal_length', y='sepal_width', marker=marker_shapes[i], s=100, title="Sepal Width vs Length by Species", label=species, ax=ax)
 plt.show()
 plt.clf()
 
