@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from utils import preprocess
 
 df = pd.read_csv('NYC_taxi_truncated.csv', parse_dates=['pickup_datetime'])
 
@@ -73,5 +74,43 @@ plt.xlabel('Hour')
 plt.show()
 
 
+
+## Handling Missing Values and Data Anomalies #############################################
+
+print(df.isnull().sum())
+print('')
+
+df = df.dropna()
+
+print(df.describe())
+
+df['fare_amount'].hist(bins=500)
+plt.xlabel("Fare")
+plt.title("Histogram of Fares")
+plt.show()
+
+df = df[(df['fare_amount'] >=0) & (df['fare_amount'] <= 100)]
+
+df['passenger_count'].hist(bins=6, ec='black')
+plt.xlabel("Passenger Count")
+plt.title("Histogram of Passenger Count")
+plt.show()
+
+df.plot.scatter('pickup_longitude', 'pickup_latitude')
+plt.show()
+
+
+
+## Geolocation Features #############################################
+
+df = preprocess(df)
+
+def euc_distance(lat1, long1, lat2, long2):
+    return(((lat1-lat2)**2 + (long1-long2)**2)**0.5)
+
+df['distance'] = euc_distance(df['pickup_latitude'], df['pickup_longitude'], df['dropoff_latitude'], df['dropoff_longitude'])
+
+df.plot.scatter('fare_amount', 'distance')
+plt.show()
 
 
