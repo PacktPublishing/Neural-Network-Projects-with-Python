@@ -8,7 +8,7 @@ from keras.layers import Dense
 from keras.layers import BatchNormalization
 from sklearn.metrics import mean_squared_error
 
-df = pd.read_csv('NYC_taxi_truncated.csv', parse_dates=['pickup_datetime'])
+df = pd.read_csv('NYC_taxi.csv', parse_dates=['pickup_datetime'], nrows=500000)
 
 # Perform preprocessing and feature engineering
 df = preprocess(df)

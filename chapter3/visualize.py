@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from utils import preprocess
 
-df = pd.read_csv('NYC_taxi_truncated.csv', parse_dates=['pickup_datetime'])
+df = pd.read_csv('NYC_taxi.csv', parse_dates=['pickup_datetime'], nrows=500000)
 
 print(df.head())
 
