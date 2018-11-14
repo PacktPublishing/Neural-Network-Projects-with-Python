@@ -16,33 +16,36 @@ if not os.path.isdir(src):
           """)
     quit()
 
+
 # create the train/test folders if it does not exists already
 if not os.path.isdir(src+'train/'):
-    train_test_split(src)
+	train_test_split(src)
 
-from keras.models import Sequential
-from keras.layers import Conv2D, MaxPooling2D
-from keras.layers import Dropout, Flatten, Dense
+from keras.applications.vgg16 import VGG16
+from keras.models import Model
+from keras.layers import Dense
 from keras.preprocessing.image import ImageDataGenerator
 
 # Define hyperparameters
-FILTER_SIZE = 3
-NUM_FILTERS = 32
-INPUT_SIZE  = 128
-MAXPOOL_SIZE = 2
+INPUT_SIZE = 224
 BATCH_SIZE = 16
 STEPS_PER_EPOCH = 20000//BATCH_SIZE
-EPOCHS = 10
+EPOCHS = 1
 
-model = Sequential()
-model.add(Conv2D(NUM_FILTERS, (FILTER_SIZE, FILTER_SIZE), input_shape = (INPUT_SIZE, INPUT_SIZE, 3), activation = 'relu'))
-model.add(MaxPooling2D(pool_size = (MAXPOOL_SIZE, MAXPOOL_SIZE)))
-model.add(Conv2D(NUM_FILTERS, (FILTER_SIZE, FILTER_SIZE), activation = 'relu'))
-model.add(MaxPooling2D(pool_size = (MAXPOOL_SIZE, MAXPOOL_SIZE)))
-model.add(Flatten())
-model.add(Dense(units = 128, activation = 'relu'))
-model.add(Dropout(0.5))
-model.add(Dense(units = 1, activation = 'sigmoid'))
+vgg16 = VGG16(weights='imagenet')
+
+# Remove the last layer of the pre-trained network
+vgg16.layers.pop()
+
+# Freeze the pre-trained layers
+for layer in vgg16.layers:
+    layer.trainable = False
+
+# Add a fully connected layer with 1 node at the end 
+last_layer = Dense(1, activation='sigmoid')
+input = vgg16.input
+output = last_layer(vgg16.layers[-1].output)
+model = Model(input=input, output=output)
 model.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
 
 training_data_generator = ImageDataGenerator(rescale = 1./255)
@@ -69,7 +72,7 @@ for idx, metric in enumerate(model.metrics_names):
 
 # Visualize results
 test_set = testing_data_generator.flow_from_directory(src+'Test/',
-                                             target_size = (128, 128),
+                                             target_size = (224, 224),
                                              batch_size = 1,
                                              class_mode = 'binary')
 
@@ -102,6 +105,3 @@ def plot_on_grid(test_set, idx_to_plot, img_size=INPUT_SIZE):
 plot_on_grid(test_set, strongly_right_idx)
 plot_on_grid(test_set, strongly_wrong_idx)
 plot_on_grid(test_set, weakly_wrong_idx)
-
-
-
