@@ -1,0 +1,11 @@
+The dataset for this project is hosted by Microsoft. To download the necessary dataset for this project, please follow the instructions below.
+
+1. Go to https://www.microsoft.com/en-us/download/details.aspx?id=54765
+
+2. Click on the 'Download' button
+
+3. After the download is complete, unzip the file.
+
+4. Within the unzipped folder, there is a ‘PetImages’ folder. Copy the entire ‘PetImages’ folder into the ‘Dataset’ folder in your project folder. 
+   The folder structure should be ‘chapter4/Dataset/PetImages/’
+
