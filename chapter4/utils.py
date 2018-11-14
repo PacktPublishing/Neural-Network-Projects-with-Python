@@ -16,6 +16,10 @@ def train_test_split(src_folder, train_size = 0.8):
 	os.makedirs(src_folder+'Test/Cat/')
 	os.makedirs(src_folder+'Test/Dog/')
 
+	# remove corrupted exif data from the dataset
+	remove_exif_data(src_folder+'Train/')
+	remove_exif_data(src_folder+'Test/')
+
 	# Get the number of cats and dogs images
 	_, _, cat_images = next(os.walk(src_folder+'Cat/'))
 	files_to_be_removed = ['Thumbs.db', '666.jpg', '835.jpg']
@@ -66,7 +70,5 @@ def remove_exif_data(src_folder):
 
 
 
-src_folder = 'Dataset/PetImages/'
-train_test_split(src_folder)
-remove_exif_data(src_folder+'Train/')
-remove_exif_data(src_folder+'Test/')
+# src_folder = 'Dataset/PetImages/'
+# train_test_split(src_folder)
