@@ -2,6 +2,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras import optimizers
 import numpy as np
+np.random.seed(9)
 
 model = Sequential()
 
