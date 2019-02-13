@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use("TkAgg")
 from utils import preprocess
 import pandas as pd
 import seaborn as sns
@@ -7,6 +9,8 @@ from sklearn.metrics import roc_curve
 from keras.models import Sequential
 from keras.layers import Dense
 import matplotlib.pyplot as plt
+import numpy as np
+np.random.seed(16)
 
 df = pd.read_csv('diabetes.csv')
 
