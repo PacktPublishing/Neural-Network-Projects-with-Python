@@ -8,4 +8,6 @@ The dataset for this project is hosted by Kaggle. To download the necessary data
 
 4. Upon signing in, the download will start automatically.
 
-5. After the download is complete, unzip the zip file and move the file 'NYC_taxi.csv' into your project folder.
+5. After the download is complete, unzip the zip file and move the file 'train.csv' into your project folder.
+
+6. Rename the file 'train.csv' as 'NYC_taxi.csv'
