@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use("TkAgg")
 from utils import preprocess, feature_engineer
 import pandas as pd
 import numpy as np
@@ -8,7 +10,17 @@ from keras.layers import Dense
 from keras.layers import BatchNormalization
 from sklearn.metrics import mean_squared_error
 
-df = pd.read_csv('NYC_taxi.csv', parse_dates=['pickup_datetime'], nrows=500000)
+try:
+    print("Reading in the dataset. This will take some time..")
+    df = pd.read_csv('NYC_taxi.csv', parse_dates=['pickup_datetime'], nrows=500000)
+except:
+    print("""
+      Dataset not found in your computer.
+      Please follow the instructions in the link below to download the dataset:
+      https://raw.githubusercontent.com/PacktPublishing/Neural-Network-Projects-with-Python/master/chapter3/how_to_download_the_dataset.txt
+      """)
+    quit()
+
 
 # Perform preprocessing and feature engineering
 df = preprocess(df)
@@ -57,6 +69,7 @@ def predict_random(df_prescaled, X_test, model):
 
     actual_fare = df_prescaled.loc[idx,'fare_amount']
     day_names = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    print(df_prescaled.loc[idx,'day_of_week'])
     day_of_week = day_names[df_prescaled.loc[idx,'day_of_week']]
     hour = df_prescaled.loc[idx,'hour']
     predicted_fare = model.predict(sample)[0][0]

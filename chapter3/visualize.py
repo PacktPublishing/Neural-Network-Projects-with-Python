@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use("TkAgg")
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -28,7 +30,8 @@ landmarks = {'JFK Airport': (-73.78,40.643),
              'Laguardia Airport': (-73.87, 40.77),
              'Midtown': (-73.98, 40.76),
              'Lower Manhattan': (-74.00, 40.72),
-             'Upper Manhattan': (-73.94, 40.82)}
+             'Upper Manhattan': (-73.94, 40.82),
+             'Brooklyn': (-73.95, 40.66)}    
 
 
 def plot_lat_long(df, landmarks, points='Pickup'):
