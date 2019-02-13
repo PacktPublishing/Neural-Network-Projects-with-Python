@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use("TkAgg")
 import os
 import random
 import warnings
@@ -12,7 +14,7 @@ if not os.path.isdir(src):
     print("""
           Dataset not found in your computer.
           Please follow the instructions in the link below to download the dataset:
-          https://github.com/PacktPublishing/Neural-Network-Projects-with-Python/blob/master/chapter4/how_to_download_the_dataset.txt
+          https://raw.githubusercontent.com/PacktPublishing/Neural-Network-Projects-with-Python/master/chapter4/how_to_download_the_dataset.txt
           """)
     quit()
 

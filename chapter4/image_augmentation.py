@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use("TkAgg")
 from keras.preprocessing.image import ImageDataGenerator
 from matplotlib import pyplot as plt
 import numpy as np
