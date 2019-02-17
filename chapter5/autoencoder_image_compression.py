@@ -60,60 +60,17 @@ if __name__ == '__main__':
     output_32_model = hiddenLayerSize_32_model.predict(X_test_reshaped)
 
     # Plot the output from each model to compare the results
-    fig, ((ax1, ax2, ax3, ax4, ax5), (ax6, ax7, ax8, ax9, ax10),
-          (ax11,ax12,ax13,ax14,ax15),(ax16,ax17,ax18,ax19,ax20),
-          (ax21,ax22,ax23,ax24,ax25),(ax26,ax27,ax28,ax29,ax30),
-          (ax31,ax32,ax33,ax34,ax35)) = plt.subplots(7, 5)
+    fig, axes = plt.subplots(7, 5, figsize=(15,15))
 
-    randomly_selected_imgs = random.sample(range(output_1_model.shape[0]),5)
+    randomly_selected_imgs = random.sample(range(output_2_model.shape[0]),5)
+    outputs = [X_test, output, output_2_model, output_4_model, output_8_model, output_16_model, output_32_model]
 
-    # 1st row for original images
-    for i, ax in enumerate([ax1,ax2,ax3,ax4,ax5]):
-      ax.imshow(X_test[randomly_selected_imgs[i]], cmap='gray')
-      ax.grid(False)
-      ax.set_xticks([])
-      ax.set_yticks([])
-
-    # 2nd row for output images from autoencoder with hidden layer size = 1
-    for i, ax in enumerate([ax6,ax7,ax8,ax9,ax10]):
-      ax.imshow(output_1_model[randomly_selected_imgs[i]].reshape(28,28), cmap='gray')
-      ax.grid(False)
-      ax.set_xticks([])
-      ax.set_yticks([])
-
-    # 3rd row for output images from autoencoder with hidden layer size = 2
-    for i, ax in enumerate([ax11,ax12,ax13,ax14,ax15]):
-      ax.imshow(output_2_model[randomly_selected_imgs[i]].reshape(28,28), cmap='gray')
-      ax.grid(False)
-      ax.set_xticks([])
-      ax.set_yticks([])
-
-    # 4th row for output images from autoencoder with hidden layer size = 4
-    for i, ax in enumerate([ax16,ax17,ax18,ax19,ax20]):
-      ax.imshow(output_4_model[randomly_selected_imgs[i]].reshape(28,28), cmap='gray')
-      ax.grid(False)
-      ax.set_xticks([])
-      ax.set_yticks([])
-
-    # 5th row for output images from autoencoder with hidden layer size = 8
-    for i, ax in enumerate([ax21,ax22,ax23,ax24,ax25]):
-      ax.imshow(output_8_model[randomly_selected_imgs[i]].reshape(28,28), cmap='gray')
-      ax.grid(False)
-      ax.set_xticks([])
-      ax.set_yticks([])
-
-    # 6th row for output images from autoencoder with hidden layer size = 16
-    for i, ax in enumerate([ax26,ax27,ax28,ax29,ax30]):
-      ax.imshow(output_16_model[randomly_selected_imgs[i]].reshape(28,28), cmap='gray')
-      ax.grid(False)
-      ax.set_xticks([])
-      ax.set_yticks([])
-
-    # 7th row for output images from autoencoder with hidden layer size = 32
-    for i, ax in enumerate([ax31,ax32,ax33,ax34,ax35]):
-      ax.imshow(output_32_model[randomly_selected_imgs[i]].reshape(28,28), cmap='gray')
-      ax.grid(False)
-      ax.set_xticks([])
-      ax.set_yticks([])
+    # Iterate through each subplot and plot accordingly
+    for row_num, row in enumerate(axes):
+      for col_num, ax in enumerate(row):
+        ax.imshow(outputs[row_num][randomly_selected_imgs[col_num]].reshape(28,28), cmap='gray')
+        ax.grid(False)
+        ax.set_xticks([])
+        ax.set_yticks([])
 
     plt.show()
