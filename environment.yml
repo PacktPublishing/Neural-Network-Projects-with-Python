@@ -14,3 +14,4 @@ dependencies:
   - theano==1.0.3
   - pillow==5.4.1
   - ipykernel==5.1.0
+  - jupyter
