@@ -16,10 +16,6 @@ def train_test_split(src_folder, train_size = 0.8):
 	os.makedirs(src_folder+'Test/Cat/')
 	os.makedirs(src_folder+'Test/Dog/')
 
-	# remove corrupted exif data from the dataset
-	remove_exif_data(src_folder+'Train/')
-	remove_exif_data(src_folder+'Test/')
-
 	# Get the number of cats and dogs images
 	_, _, cat_images = next(os.walk(src_folder+'Cat/'))
 	files_to_be_removed = ['Thumbs.db', '666.jpg', '835.jpg']
@@ -51,6 +47,10 @@ def train_test_split(src_folder, train_size = 0.8):
 	dog_test_images  = [img for img in dog_images if img not in dog_train_images]
 	for img in dog_test_images:
 		shutil.copy(src=src_folder+'Dog/'+img, dst=src_folder+'Test/Dog/')
+
+	# remove corrupted exif data from the dataset
+	remove_exif_data(src_folder+'Train/')
+	remove_exif_data(src_folder+'Test/')
 
 # helper function to remove corrupt exif data from Microsoft's dataset
 def remove_exif_data(src_folder):
