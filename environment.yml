@@ -2,6 +2,7 @@ name: neural-network-projects-python
 channels:
   - conda-forge
 dependencies:
+  - python==3.6.8
   - pandas==0.23.4
   - numpy==1.15.2
   - matplotlib==3.0.2
@@ -11,3 +12,5 @@ dependencies:
   - scikit-learn==0.20.2
   - mkl-service==1.1.2
   - theano==1.0.3
+  - pillow==5.4.1
+  - ipykernel==5.1.0
