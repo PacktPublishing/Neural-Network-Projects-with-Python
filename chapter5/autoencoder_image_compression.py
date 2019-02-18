@@ -64,7 +64,7 @@ if __name__ == '__main__':
     fig, axes = plt.subplots(7, 5, figsize=(15,15))
 
     randomly_selected_imgs = random.sample(range(output_2_model.shape[0]),5)
-    outputs = [X_test, output, output_2_model, output_4_model, output_8_model, output_16_model, output_32_model]
+    outputs = [X_test, output_1_model, output_2_model, output_4_model, output_8_model, output_16_model, output_32_model]
 
     # Iterate through each subplot and plot accordingly
     for row_num, row in enumerate(axes):
