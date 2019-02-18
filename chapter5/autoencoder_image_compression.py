@@ -2,6 +2,7 @@ from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense
 from matplotlib import pyplot as plt
+import random
 
 def create_basic_autoencoder(hidden_layer_size):
   model = Sequential() 
