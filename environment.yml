@@ -1,10 +1,8 @@
 name: neural-network-projects-python
-channels:
-  - conda-forge
 dependencies:
   - python==3.6.8
   - pandas==0.23.4
-  - numpy==1.15.2
+  - numpy==1.15.4
   - matplotlib==3.0.2
   - Keras==2.2.4
   - opencv==3.4.2
@@ -15,3 +13,5 @@ dependencies:
   - pillow==5.4.1
   - ipykernel==5.1.0
   - jupyter
+  - pip:
+    - piexif==1.1.2
