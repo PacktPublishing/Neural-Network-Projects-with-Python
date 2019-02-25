@@ -12,7 +12,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 np.random.seed(16)
 
-df = pd.read_csv('diabetes.csv')
+try:
+    df = pd.read_csv('diabetes.csv')
+except:
+    print("""
+      Dataset not found in your computer.
+      Please follow the instructions in the link below to download the dataset:
+      https://raw.githubusercontent.com/PacktPublishing/Neural-Network-Projects-with-Python/master/chapter2/how_to_download_the_dataset.txt
+      """)
+    quit()
 
 # Perform preprocessing and feature engineering
 df = preprocess(df)
