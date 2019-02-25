@@ -61,7 +61,7 @@ test_pred = model.predict(X_test)
 test_rmse = np.sqrt(mean_squared_error(y_test, test_pred))
 print("Train RMSE: {:0.2f}".format(train_rmse))
 print("Test RMSE: {:0.2f}".format(test_rmse))
-
+print('------------------------')
 
 def predict_random(df_prescaled, X_test, model):
     sample = X_test.sample(n=1, random_state=np.random.randint(low=0, high=10000))
@@ -69,7 +69,6 @@ def predict_random(df_prescaled, X_test, model):
 
     actual_fare = df_prescaled.loc[idx,'fare_amount']
     day_names = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    print(df_prescaled.loc[idx,'day_of_week'])
     day_of_week = day_names[df_prescaled.loc[idx,'day_of_week']]
     hour = df_prescaled.loc[idx,'hour']
     predicted_fare = model.predict(sample)[0][0]
