@@ -24,12 +24,6 @@ def preprocess(df):
     df['Insulin'] = df['Insulin'].fillna(df['Insulin'].mean())
     df['BMI'] = df['BMI'].fillna(df['BMI'].mean())
 
-    # Standardization
-    df_scaled = preprocessing.scale(df)
-    df_scaled = pd.DataFrame(df_scaled, columns=df.columns)
-    df_scaled['Outcome'] = df['Outcome']
-    df = df_scaled
-    
     print('----------------------------------------------')
     print("After preprocessing")
     print("Number of rows with 0 values for each variable")
@@ -37,5 +31,12 @@ def preprocess(df):
         missing_rows = df.loc[df[col]==0].shape[0]
         print(col + ": " + str(missing_rows))
     print('----------------------------------------------')
+
+    # Standardization
+    df_scaled = preprocessing.scale(df)
+    df_scaled = pd.DataFrame(df_scaled, columns=df.columns)
+    df_scaled['Outcome'] = df['Outcome']
+    df = df_scaled
+    
 
     return df
