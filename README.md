@@ -9,7 +9,7 @@ This is the code repository for [Neural Network Projects with Python](https://ww
 ## What is this book about?
 Neural networks are at the core of recent AI advances, providing some of the best resolutions to many real-world problems, including image recognition, medical diagnosis, text analysis, and more. This book goes through some basic neural network and deep learning concepts, as well as some popular libraries in Python for implementing them.
 
-This book covers the following exciting features: <First 5 What you'll learn points>
+This book covers the following exciting features: 
 * Learn various neural network architectures and its advancements in AI
 * Master deep learning in Python by building and training neural network
 * Master neural networks for regression and classification
@@ -52,7 +52,7 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 
 * Deep Learning with PyTorch [[Packt]](https://www.packtpub.com/big-data-and-business-intelligence/deep-learning-pytorch?utm_source=github&utm_medium=repository&utm_campaign=9781788624336) [[Amazon]](https://www.amazon.com/dp/1788624335)
 
-## Get to Know the Author(s)
+## Get to Know the Author
 **James Loy**
 has more than five years, expert experience in data science in the finance and healthcare industries. He has worked with the largest bank in Singapore to drive innovation and improve customer loyalty through predictive analytics. He has also experience in the healthcare sector, where he applied data analytics to improve decision-making in hospitals. He has a master's degree in computer science from Georgia Tech, with a specialization in machine learning.
 
