@@ -1,8 +1,8 @@
 # Neural Network Projects with Python
 
-<a href="Packt UTM URL of the Book"><img src="Cover Image URL of the Book" alt="Book Name" height="256px" align="right"></a>
+<a href="https://www.packtpub.com/big-data-and-business-intelligence/neural-network-projects-python?utm_source=github&utm_medium=repository"><img src="https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B10710.png" alt="Book Name" height="256px" align="right"></a>
 
-This is the code repository for [Neural Network Projects with Python](Packt UTM URL of the Book), published by Packt.
+This is the code repository for [Neural Network Projects with Python](https://www.packtpub.com/big-data-and-business-intelligence/neural-network-projects-python?utm_source=github&utm_medium=repository), published by Packt.
 
 **The ultimate guide to using Python to explore the true power of neural networks through six projects**
 
@@ -16,7 +16,7 @@ This book covers the following exciting features: <First 5 What you'll learn poi
 * Discover convolutional neural networks for image recognition
 * Learn sentiment analysis on textual data using Long Short-Term Memory
 
-If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1-789-13890-6) today!
+If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1789138906) today!
 
 <a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
 alt="https://www.packtpub.com/" border="5" /></a>
