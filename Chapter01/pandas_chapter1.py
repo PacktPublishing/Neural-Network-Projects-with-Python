@@ -28,7 +28,7 @@ print('')
 df2 = df.loc[df['sepal_length'] > 5.0, ]
 
 '''
-Data Visualization in Panads
+Data Visualization in Pandas
 '''
 
 # Define marker shapes by class
