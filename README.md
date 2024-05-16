@@ -1,7 +1,7 @@
 
 
 
-# Neural Network Projects with Python
+# Neural Network Projects with Pythons!
 
 <a href="https://www.packtpub.com/big-data-and-business-intelligence/neural-network-projects-python?utm_source=github&utm_medium=repository"><img src="https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B10710.png" alt="Book Name" height="256px" align="right"></a>
 
