@@ -13,7 +13,7 @@ import numpy as np
 np.random.seed(16)
 
 try:
-    df = pd.read_csv('diabetes.csv')
+    df = pd.read_csv('diabete.csv')
 except:
     print("""
       Dataset not found in your computer.
